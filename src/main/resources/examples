@@ -1,0 +1,10 @@
+http://localhost:1986/get/cuisine?type=Bagels/Pretzels
+http://localhost:1986/get/filter?cuisine=Chinese&borough=Brooklyn
+http://localhost:1986/get/borough?name=Brooklyn
+http://localhost:1986/get/name/cafe
+http://localhost:1986/get/grade/B
+http://localhost:1986/get/nograde
+
+
+http://localhost:1986/data/boroughs
+http://localhost:1986/data/cuisines
