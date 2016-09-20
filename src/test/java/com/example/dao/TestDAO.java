@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class TestDAO {
 
 	@Before
 	public void setup() {
-		importJSON("restaurants");
+		// importJSON("restaurants");
 	}
 
 	@Autowired
@@ -61,10 +62,16 @@ public class TestDAO {
 	public void testRetrievalByCuisine() {
 		// Given
 		final String cuisine = "Delicatessen";
+		final Restaurant restaurant = new Restaurant();
+		restaurant.setCuisine(cuisine);
+		this.mongoTemplate.save(restaurant, "restaurants");
 		// When
 		List<Restaurant> restaurants = this.readRestaurantDAO.getRestaurantsByCuisine(cuisine);
 		// Then
 		assertNotNull("The restaurant list should not be null", restaurants);
+		assertEquals("There should be one restaurant", 1, restaurants.size());
+		assertEquals("The cuisine of the fetched restaurant should be the same as the value used to set up data",
+				cuisine, restaurants.get(0).getCuisine());
 	}
 
 }
