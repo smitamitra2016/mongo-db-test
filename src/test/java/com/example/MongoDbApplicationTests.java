@@ -11,6 +11,7 @@ public class MongoDbApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		// Test context loads
 	}
 
 }

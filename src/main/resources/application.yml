@@ -1,18 +1,10 @@
 server:
   port: 1986
+---
 spring:
-  profiles:
-    active: development
+  profiles: development
   data:
     mongodb:
       host: 172.20.3.234
       port: 12345
-      database: mydb
-      
----
-spring:
-  profiles:
-    active: test
-  data:
-    mongodb:
       database: mydb
