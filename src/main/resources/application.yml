@@ -2,7 +2,7 @@ server:
   port: 1986
 ---
 spring:
-  profiles: development
+  profiles: default
   data:
     mongodb:
       host: 172.20.3.234
