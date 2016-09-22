@@ -7,8 +7,10 @@ import javax.ws.rs.QueryParam;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.beans.Restaurant;
@@ -17,6 +19,10 @@ import com.example.dao.ReadRestaurantDataDAO;
 
 @RestController
 @RequestMapping("/get")
+@CrossOrigin(allowCredentials="true", 
+methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.OPTIONS,RequestMethod.DELETE},
+allowedHeaders={"x-requested-with", "accept", "authorization", "content-type"}, 
+exposedHeaders={"access-control-allow-headers", "access-control-allow-methods", "access-control-allow-origin", "access-control-max-age", "X-Frame-Options"})
 public class ReadRestaurantService {
 
 	@Autowired
